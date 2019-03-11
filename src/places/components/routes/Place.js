@@ -2,7 +2,8 @@ import React, { Component, Fragment } from 'react'
 import ProgressBar from 'react-bootstrap/ProgressBar'
 import { Link, withRouter } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
-import { getPlace } from '../../api'
+import { getPlace, deletePlace } from '../../api'
+import messages from '../../messages'
 
 class Place extends Component {
   constructor () {
@@ -12,6 +13,18 @@ class Place extends Component {
       place: null,
       favorite: false
     }
+  }
+
+  onDeletePlace = event => {
+    const { user, alert, history } = this.props
+    deletePlace(user, this.props.match.params.id)
+      .then(() => alert(messages.deletePlaceSuccess, 'success'))
+      .catch(error => {
+        console.error(error)
+        this.setState({ name: '', city: '', country: '', comments: '', date: '' })
+        alert(messages.deletePlaceFailure, 'danger')
+      })
+      .finally(() => history.push('/places'))
   }
 
   componentDidMount () {
@@ -39,6 +52,7 @@ class Place extends Component {
             {this.state.favorite ? 'Not my Favorite' : 'Favorite!'}
           </Button>
           <Link to='/places'><Button>Back</Button></Link>
+          <Button onClick={this.onDeletePlace}>Delete</Button>
         </div>
       </Fragment>
     )

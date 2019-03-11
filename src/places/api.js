@@ -40,3 +40,13 @@ export const createPlace = (place, user) => {
     }
   })
 }
+
+export const deletePlace = (user, id) => {
+  return axios({
+    method: 'DELETE',
+    url: `${apiUrl}/places/${id}`,
+    headers: {
+      'Authorization': `Token token=${user.token}`
+    }
+  })
+}
