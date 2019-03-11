@@ -52,6 +52,7 @@ class Place extends Component {
             {this.state.favorite ? 'Not my Favorite' : 'Favorite!'}
           </Button>
           <Link to='/places'><Button>Back</Button></Link>
+          <Link to={`/places/${this.props.match.params.id}/edit`}><Button>Edit</Button></Link>
           <Button onClick={this.onDeletePlace}>Delete</Button>
         </div>
       </Fragment>

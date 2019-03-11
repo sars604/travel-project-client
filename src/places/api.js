@@ -50,3 +50,23 @@ export const deletePlace = (user, id) => {
     }
   })
 }
+
+export const editPlace = (place, user, id) => {
+  return axios({
+    method: 'PATCH',
+    url: `${apiUrl}/places/${id}`,
+    headers: {
+      'Authorization': `Token token=${user.token}`
+    },
+    data: {
+      place: {
+        name: place.name,
+        date: place.date,
+        city: place.city,
+        country: place.country,
+        comments: place.comments,
+        favorite: false
+      }
+    }
+  })
+}

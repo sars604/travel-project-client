@@ -12,6 +12,7 @@ import ChangePassword from './auth/components/ChangePassword'
 import Places from './places/components/routes/Places'
 import Place from './places/components/routes/Place'
 import PlaceCreate from './places/components/routes/PlaceCreate'
+import PlaceEdit from './places/components/routes/PlaceEdit'
 
 import Alert from 'react-bootstrap/Alert'
 
@@ -67,6 +68,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/place-create' render={() => (
             <PlaceCreate alert={this.alert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/places/:id/edit' render={({ match }) => (
+            <PlaceEdit alert={this.alert} match={match} user={user} />
           )} />
         </main>
       </React.Fragment>
