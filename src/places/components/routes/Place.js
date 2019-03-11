@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import ProgressBar from 'react-bootstrap/ProgressBar'
-import { withRouter } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
+import Button from 'react-bootstrap/Button'
 import { getPlace } from '../../api'
 
 class Place extends Component {
@@ -8,7 +9,8 @@ class Place extends Component {
     super()
 
     this.state = {
-      place: null
+      place: null,
+      favorite: false
     }
   }
 
@@ -33,6 +35,10 @@ class Place extends Component {
           <h3>{place.city}, {place.country}</h3>
           <h5>{place.date}</h5>
           <p>{place.comments}</p>
+          <Button onClick={this.toggleFavorite}>
+            {this.state.favorite ? 'Not my Favorite' : 'Favorite!'}
+          </Button>
+          <Link to='/places'><Button>Back</Button></Link>
         </div>
       </Fragment>
     )
