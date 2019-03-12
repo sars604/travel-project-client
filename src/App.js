@@ -31,7 +31,19 @@ class App extends Component {
   clearUser = () => this.setState({ user: null })
 
   alert = (message, type) => {
-    this.setState({ alerts: [...this.state.alerts, { message, type }] })
+    this.setState({ alerts: [...this.state.alerts, { message, type, fade: false }] })
+    setTimeout(() => {
+      this.setState(prevState => ({
+        alerts: prevState.alerts.map(alert => ({
+          message: alert.message,
+          type: alert.type,
+          fade: true
+        }))
+      }))
+    }, 1000)
+    setTimeout(() => {
+      this.setState(prevState => ({ alerts: prevState.alerts.slice(1) }))
+    }, 2000)
   }
 
   render () {
@@ -41,38 +53,40 @@ class App extends Component {
       <React.Fragment>
         <Header user={user} />
         {alerts.map((alert, index) => (
-          <Alert key={index} dismissible variant={alert.type}>
+          <Alert className={alert.fade ? 'fade-out' : ''} key={index} dismissible variant={alert.type}>
             <Alert.Heading>
               {alert.message}
             </Alert.Heading>
           </Alert>
         ))}
-        <main className="container">
-          <Route path='/sign-up' render={() => (
-            <SignUp alert={this.alert} setUser={this.setUser} />
-          )} />
-          <Route path='/sign-in' render={() => (
-            <SignIn alert={this.alert} setUser={this.setUser} />
-          )} />
-          <AuthenticatedRoute user={user} path='/sign-out' render={() => (
-            <SignOut alert={this.alert} clearUser={this.clearUser} user={user} />
-          )} />
-          <AuthenticatedRoute user={user} path='/change-password' render={() => (
-            <ChangePassword alert={this.alert} user={user} />
-          )} />
-          <AuthenticatedRoute user={user} exact path='/places' render={() => (
-            <Places alert={this.alert} user={user} />
-          )} />
-          <AuthenticatedRoute user={user} exact path='/places/:id' render={({ match }) => (
-            <Place alert={this.alert} match={match} user={user} />
-          )} />
-          <AuthenticatedRoute user={user} path='/place-create' render={() => (
-            <PlaceCreate alert={this.alert} user={user} />
-          )} />
-          <AuthenticatedRoute user={user} exact path='/places/:id/edit' render={({ match }) => (
-            <PlaceEdit alert={this.alert} match={match} user={user} />
-          )} />
-        </main>
+        <div className='page-body'>
+          <main className="container">
+            <Route path='/sign-up' render={() => (
+              <SignUp alert={this.alert} setUser={this.setUser} />
+            )} />
+            <Route path='/sign-in' render={() => (
+              <SignIn alert={this.alert} setUser={this.setUser} />
+            )} />
+            <AuthenticatedRoute user={user} path='/sign-out' render={() => (
+              <SignOut alert={this.alert} clearUser={this.clearUser} user={user} />
+            )} />
+            <AuthenticatedRoute user={user} path='/change-password' render={() => (
+              <ChangePassword alert={this.alert} user={user} />
+            )} />
+            <AuthenticatedRoute user={user} exact path='/places' render={() => (
+              <Places alert={this.alert} user={user} />
+            )} />
+            <AuthenticatedRoute user={user} exact path='/places/:id' render={({ match }) => (
+              <Place alert={this.alert} match={match} user={user} />
+            )} />
+            <AuthenticatedRoute user={user} path='/place-create' render={() => (
+              <PlaceCreate alert={this.alert} user={user} />
+            )} />
+            <AuthenticatedRoute user={user} exact path='/places/:id/edit' render={({ match }) => (
+              <PlaceEdit alert={this.alert} match={match} user={user} />
+            )} />
+          </main>
+        </div>
       </React.Fragment>
     )
   }
