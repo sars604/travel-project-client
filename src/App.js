@@ -13,6 +13,7 @@ import Places from './places/components/routes/Places'
 import Place from './places/components/routes/Place'
 import PlaceCreate from './places/components/routes/PlaceCreate'
 import PlaceEdit from './places/components/routes/PlaceEdit'
+import Home from './Home'
 
 import Alert from 'react-bootstrap/Alert'
 
@@ -59,8 +60,8 @@ class App extends Component {
             </Alert.Heading>
           </Alert>
         ))}
-        <div className='page-body'>
-          <main className="container">
+        <main className="container">
+          <div className='main-body'>
             <Route path='/sign-up' render={() => (
               <SignUp alert={this.alert} setUser={this.setUser} />
             )} />
@@ -73,6 +74,7 @@ class App extends Component {
             <AuthenticatedRoute user={user} path='/change-password' render={() => (
               <ChangePassword alert={this.alert} user={user} />
             )} />
+            <Route exact path='/' component={Home} />
             <AuthenticatedRoute user={user} exact path='/places' render={() => (
               <Places alert={this.alert} user={user} />
             )} />
@@ -85,8 +87,8 @@ class App extends Component {
             <AuthenticatedRoute user={user} exact path='/places/:id/edit' render={({ match }) => (
               <PlaceEdit alert={this.alert} match={match} user={user} />
             )} />
-          </main>
-        </div>
+          </div>
+        </main>
       </React.Fragment>
     )
   }

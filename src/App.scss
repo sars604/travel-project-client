@@ -3,12 +3,14 @@ $warning: #f1e681;
 $error: #f08181;
 $charcoal: #ccc;
 
-// .page-body {
-//   background-image: url('./css/graphic-map.jpg');
-//   background-repeat: no-repeat;
-//   background-size: cover;
-//   background-color: transparent;
-// }
+
+.main-body {
+  background-image: url('./css/passport-bg-faded.png');
+  background-repeat: repeat;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
 
 .flash-success,
 .flash-warning,
@@ -36,12 +38,14 @@ $charcoal: #ccc;
   background-color: $error;
 }
 
-.auth-form {
+.auth-form, .places-box, .single-place {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 15% auto 0;
+  margin: 0 auto 0;
   max-width: 600px;
+  background-color: #fff;
+  padding: 100px;
 
   h3,
   input {

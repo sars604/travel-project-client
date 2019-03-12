@@ -42,7 +42,7 @@ const alwaysOptions = (
 
 const Header = ({ user }) => (
   <header className="main-header">
-    <h1>Where in the World...?</h1>
+    <h1>Where in the World<img src='https://media.giphy.com/media/l1KVcrdl7rJpFnY2s/giphy.gif'></img></h1>
     <Nav className='navbar'>
       { user && <span>Welcome, {user.email}</span>}
       { alwaysOptions }

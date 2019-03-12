@@ -28,14 +28,16 @@ class Places extends Component {
     }
     return (
       <Fragment>
-        <h2>Where have you been?</h2>
-        {this.state.places.map(place => (
-          <Link key={place.id} to={`/places/${place.id}`}>
-            <div className='place' >
-              <h5>{place.city}, {place.country} {flag(place.country)} {place.favorite ? '❤️' : ''} </h5>
-            </div>
-          </Link>
-        ))}
+        <div className='places-box'>
+          <h2>Where have you been?</h2>
+          {this.state.places.map(place => (
+            <Link key={place.id} to={`/places/${place.id}`}>
+              <div className='place' >
+                <h5>{place.city}, {place.country} {flag(place.country)} {place.favorite ? '❤️' : ''} </h5>
+              </div>
+            </Link>
+          ))}
+        </div>
       </Fragment>
     )
   }
