@@ -4,7 +4,7 @@ $charcoal: #bbb;
   align-items: center;
   border-bottom: 1px solid $charcoal;
   display: flex;
-  height: 116px;
+  height: 103px;
   padding: 0 20px;
   background-color: #243257;
 
@@ -12,12 +12,13 @@ $charcoal: #bbb;
   span {
     font-size: 1.2em;
     margin: 0 15px;
+    color: #fff;
   }
 }
 
 h1 {
   color: #fff;
-  font-family: 'Rock Salt', cursive;
+  font-family: 'Comfortaa', cursive;
 }
 
 .navbar {

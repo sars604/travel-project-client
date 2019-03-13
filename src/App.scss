@@ -3,6 +3,13 @@ $warning: #f1e681;
 $error: #f08181;
 $charcoal: #ccc;
 
+body {
+  font-family: 'Libre Franklin', sans-serif;
+}
+
+.container {
+  padding: 0;
+}
 
 .main-body {
   background-image: url('./css/passport-bg-faded.png');
@@ -46,6 +53,8 @@ $charcoal: #ccc;
   max-width: 600px;
   background-color: #fff;
   padding: 100px;
+  border-radius: 10px;
+  border-left: solid 10px #7AB7C7;
 
   h3,
   input {

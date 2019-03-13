@@ -71,12 +71,12 @@ class Place extends Component {
           <h3>{city}, {country} {flag(country)} {favorite ? '❤️' : ''}</h3>
           <h5>{date}</h5>
           <p>{comments}</p>
-          <Button onClick={this.onFavoritePlace}>
+          <div className='buttons'><Button onClick={this.onFavoritePlace}>
             {this.state.favorite ? 'Like, not Love' : 'Loved it!'}
           </Button>
           <Link to='/places'><Button>Back</Button></Link>
           <Link to={`/places/${this.props.match.params.id}/edit`}><Button>Edit</Button></Link>
-          <Button onClick={this.onDeletePlace}>Delete</Button>
+          <Button onClick={this.onDeletePlace}>Delete</Button></div>
         </div>
       </Fragment>
     )

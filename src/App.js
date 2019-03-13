@@ -18,8 +18,8 @@ import Home from './Home'
 import Alert from 'react-bootstrap/Alert'
 
 class App extends Component {
-  constructor () {
-    super()
+  constructor (props) {
+    super(props)
 
     this.state = {
       user: null,

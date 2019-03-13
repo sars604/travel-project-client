@@ -48,22 +48,24 @@ class PlaceEdit extends Component {
     const { handleChange, onEditPlace } = this
     return (
       <Fragment>
-        { message && <Alert dismissible variant="success">{message}</Alert> }
-        <h3 className="create-quote">Update a Place</h3>
-        <form onSubmit={onEditPlace}>
-          <label>City:&nbsp;</label>
-          <input placeholder='City' name="city" onChange={handleChange} value={place.city} type='text' /><br />
-          <label>Country:&nbsp;</label>
-          <input placeholder='Country' name="country" onChange={handleChange} value={place.country} type='text' /><br />
-          <label>Date Visited:&nbsp;</label>
-          <input placeholder='Date' type="date" name="date" onChange={handleChange} value={place.date} /><br />
-          <label>Your Name:&nbsp;</label>
-          <input placeholder='Your Name' type="text" name="name" onChange={handleChange} value={place.name} /><br />
-          <label>Comments:&nbsp;</label>
-          <input placeholder='Comments' type="text" name="comments" onChange={handleChange} value={place.comments} /><br />
-          <Link to='/places'><Button variant="primary">Back</Button></Link>
-          <Button variant="primary" type="submit">Submit</Button>
-        </form>
+        <div className='single-place'>
+          { message && <Alert dismissible variant="success">{message}</Alert> }
+          <h3 className="create-quote">Update a Place</h3>
+          <form onSubmit={onEditPlace}>
+            <label>City:&nbsp;</label>
+            <input placeholder='City' name="city" onChange={handleChange} value={place.city} type='text' /><br />
+            <label>Country:&nbsp;</label>
+            <input placeholder='Country' name="country" onChange={handleChange} value={place.country} type='text' /><br />
+            <label>Date Visited:&nbsp;</label>
+            <input placeholder='Date' type="date" name="date" onChange={handleChange} value={place.date} /><br />
+            <label>Your Name:&nbsp;</label>
+            <input placeholder='Your Name' type="text" name="name" onChange={handleChange} value={place.name} /><br />
+            <label>Comments:&nbsp;</label>
+            <input placeholder='Comments' type="text" name="comments" onChange={handleChange} value={place.comments} /><br />
+            <Link to='/places'><Button variant="primary">Back</Button></Link>
+            <Button variant="primary" type="submit">Submit</Button>
+          </form>
+        </div>
       </Fragment>
     )
   }
