@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react'
+import Button from 'react-bootstrap/Button'
 import Alert from 'react-bootstrap/Alert'
 import messages from '../../messages'
 import { createPlace } from '../../api'
 import { Link, withRouter } from 'react-router-dom'
-import Button from 'react-bootstrap/Button'
 
 class PlaceCreate extends Component {
   constructor () {
@@ -59,7 +59,7 @@ class PlaceCreate extends Component {
           <h3 className="create-quote">Log a Place</h3>
           <form onSubmit={onCreatePlace}>
             <label>City:&nbsp;</label>
-            <input className='Autocomplete' placeholder='City' name="city" onChange={handleChange} value={place.city} type='text' /><br />
+            <input placeholder='City' name="city" onChange={handleChange} value={place.city} type='text' /><br />
             <label>Country:&nbsp;</label>
             <input placeholder='Country' name="country" onChange={handleChange} value={place.country} type='text' /><br />
             <label>Date Visited:&nbsp;</label>
