@@ -4,21 +4,40 @@ $charcoal: #bbb;
   align-items: center;
   border-bottom: 1px solid $charcoal;
   display: flex;
-  height: 100px;
+  height: 103px;
   padding: 0 20px;
+  background-color: #243257;
 
   a,
   span {
     font-size: 1.2em;
     margin: 0 15px;
+    color: #fff;
   }
 }
 
-.main-header > nav {
+h1 {
+  color: #fff;
+  font-family: 'Comfortaa', cursive;
+}
+
+.navbar {
   align-items: center;
   display: flex;
   flex-grow: 1;
   justify-content: flex-end;
+}
+
+img {
+  width: 17%;
+}
+
+.fade {
+  transition: opacity .75s linear !important;
+}
+
+.fade-out {
+  opacity: 0;
 }
 
 @media (max-width: 600px) {
