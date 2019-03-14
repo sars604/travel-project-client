@@ -23,6 +23,7 @@ class Places extends Component {
   }
 
   render () {
+    const { flag } = require('../../../.././src/emoji/lib.js')
     if (!this.state.places) {
       return <div className='places-box'>
         <p>Loading...</p>
@@ -42,7 +43,7 @@ class Places extends Component {
           {this.state.places.map(place => (
             <Link key={place.id} to={`/places/${place.id}`}>
               <div className='place' >
-                <h5>{place.city}, {place.country} {place.favorite ? '💛' : ''} </h5>
+                <h5>{place.city}, {place.country} {flag(place.country)} {place.favorite ? '💛' : ''} </h5>
               </div>
             </Link>
           ))}

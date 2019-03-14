@@ -34,6 +34,7 @@ class Place extends Component {
   onFavoritePlace = event => {
     const { user, match } = this.props
     const { id } = match.params
+
     this.setState(() => {
       favoritePlace(!this.state.favorite, user, id)
         .then(response => this.setState({ favorite: response.data.place.favorite }))
@@ -60,13 +61,14 @@ class Place extends Component {
 
   render () {
     const { name, date, city, country, comments, favorite } = this.state
+    const { flag } = require('../../../.././src/emoji/lib.js')
     if (!name) {
       return <ProgressBar striped variant="primary" animated now={60} />
     }
     return (
       <Fragment>
         <div className='single-place'>
-          <h3>{city}, {country} {favorite ? '💛' : ''}</h3>
+          <h3>{city}, {country} {flag(country)} {favorite ? '💛' : ''}</h3>
           <h5>{date}</h5>
           <p>{comments}</p>
           <div className='buttons'><Button onClick={this.onDeletePlace}>Delete</Button>
