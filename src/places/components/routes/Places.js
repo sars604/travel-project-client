@@ -25,6 +25,7 @@ class Places extends Component {
     if (!this.state.places) {
       return <p>loading...</p>
     }
+
     return (
       <Fragment>
         <div className='places-box'>

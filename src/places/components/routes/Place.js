@@ -60,7 +60,6 @@ class Place extends Component {
 
   render () {
     const { name, date, city, country, comments, favorite } = this.state
-
     if (!name) {
       return <ProgressBar striped variant="primary" animated now={60} />
     }
