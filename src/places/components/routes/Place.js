@@ -68,7 +68,7 @@ class Place extends Component {
     return (
       <Fragment>
         <div className='single-place'>
-          <h3>{city}, {country} {flag(country)} {favorite ? '❤️' : ''}</h3>
+          <h3>{city}, {country} {favorite ? '❤️' : ''}</h3>
           <h5>{date}</h5>
           <p>{comments}</p>
           <div className='buttons'><Button onClick={this.onFavoritePlace}>
