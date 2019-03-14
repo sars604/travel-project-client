@@ -60,11 +60,11 @@ class PlaceCreate extends Component {
           <form onSubmit={onCreatePlace}>
             <div className='form-group'>
               <label>City:&nbsp;</label>
-              <input className='form-control' placeholder='London' name="city" onChange={handleChange} value={place.city} type='text' />
+              <input className='form-control' placeholder='London' name="city" onChange={handleChange} value={place.city} required type='text' />
             </div>
             <div className='form-group'>
               <label>Country:&nbsp;</label>
-              <input className='form-control' placeholder='England' name="country" onChange={handleChange} value={place.country} type='text' />
+              <input className='form-control' placeholder='England' name="country" onChange={handleChange} value={place.country} required type='text' />
             </div>
             <div className='form-group'>
               <label>Date Visited:&nbsp;</label>
@@ -72,7 +72,7 @@ class PlaceCreate extends Component {
             </div>
             <div className='form-group'>
               <label>Your Name:&nbsp;</label>
-              <input className='form-control' placeholder='Sarah' type="text" name="name" onChange={handleChange} value={place.name} />
+              <input className='form-control' placeholder='Sarah' type="text" name="name" onChange={handleChange} required value={place.name} />
             </div>
             <div className='form-group'>
               <label>Comments:&nbsp;</label>

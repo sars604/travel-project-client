@@ -72,7 +72,6 @@ export const editPlace = (place, user, id) => {
 }
 
 export const favoritePlace = (favorite, user, id) => {
-  console.log(favorite)
   return axios({
     method: 'PATCH',
     url: `${apiUrl}/places/${id}`,
