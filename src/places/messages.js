@@ -4,5 +4,6 @@ export default {
   deletePlaceSuccess: 'Successfully removed entry.',
   deletePlaceFailure: 'Something went wrong. Try again.',
   editPlaceSuccess: 'Successfully saved edits to entry.',
-  editPlaceFailure: 'Something went wrong. Try again.'
+  editPlaceFailure: 'Something went wrong. Try again.',
+  searchPlacesFailure: 'No places found, Log one now!'
 }

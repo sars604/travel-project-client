@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
+import Button from 'react-bootstrap/Button'
 
 import { signIn } from '../api'
 import messages from '../messages'
@@ -40,25 +41,28 @@ class SignIn extends Component {
     return (
       <form className='auth-form' onSubmit={this.onSignIn}>
         <h3>Sign In</h3>
-        <label htmlFor="email">Email</label>
-        <input
-          required
-          type="email"
-          name="email"
-          value={email}
-          placeholder="Email"
-          onChange={this.handleChange}
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          required
-          name="password"
-          value={password}
-          type="password"
-          placeholder="Password"
-          onChange={this.handleChange}
-        />
-        <button type="submit">Sign In</button>
+        <div className='form-group'>
+          <label htmlFor="email">Email</label>
+          <input
+            required
+            type="email"
+            name="email"
+            value={email}
+            placeholder="Email"
+            onChange={this.handleChange}
+            className='form-control'
+          /></div>
+        <div className='form-group'><label htmlFor="password">Password</label>
+          <input
+            required
+            name="password"
+            value={password}
+            type="password"
+            placeholder="Password"
+            onChange={this.handleChange}
+            className='form-control'
+          /></div>
+        <Button type="submit">Sign In</Button>
       </form>
     )
   }

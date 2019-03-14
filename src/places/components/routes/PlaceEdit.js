@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import Alert from 'react-bootstrap/Alert'
 import messages from '../../messages'
-import { editPlace } from '../../api'
+import { editPlace, getPlace } from '../../api'
 import { Link, withRouter } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 
@@ -15,10 +15,24 @@ class PlaceEdit extends Component {
       city: '',
       country: '',
       comments: '',
+      favorite: '',
       createdPlaceId: null,
       message: null
     }
   }
+
+  componentDidMount () {
+    const { user, match } = this.props
+    getPlace(user, match)
+      .then(response => this.setState({ name: response.data.place.name,
+        date: response.data.place.date,
+        city: response.data.place.city,
+        country: response.data.place.country,
+        comments: response.data.place.comments,
+        favorite: response.data.place.favorite
+      }))
+  }
+
   onEditPlace = event => {
     event.preventDefault()
 
@@ -52,18 +66,28 @@ class PlaceEdit extends Component {
           { message && <Alert dismissible variant="success">{message}</Alert> }
           <h3 className="create-quote">Update a Place</h3>
           <form onSubmit={onEditPlace}>
-            <label>City:&nbsp;</label>
-            <input placeholder='City' name="city" onChange={handleChange} value={place.city} type='text' /><br />
-            <label>Country:&nbsp;</label>
-            <input placeholder='Country' name="country" onChange={handleChange} value={place.country} type='text' /><br />
-            <label>Date Visited:&nbsp;</label>
-            <input placeholder='Date' type="date" name="date" onChange={handleChange} value={place.date} /><br />
-            <label>Your Name:&nbsp;</label>
-            <input placeholder='Your Name' type="text" name="name" onChange={handleChange} value={place.name} /><br />
-            <label>Comments:&nbsp;</label>
-            <input placeholder='Comments' type="text" name="comments" onChange={handleChange} value={place.comments} /><br />
-            <Link to='/places'><Button variant="primary">Back</Button></Link>
+            <div className='form-group'>
+              <label>City:&nbsp;</label>
+              <input className='form-control' placeholder='City' name="city" onChange={handleChange} value={place.city} type='text' />
+            </div>
+            <div className='form-group'>
+              <label>Country:&nbsp;</label>
+              <input className='form-control' placeholder='Country' name="country" onChange={handleChange} value={place.country} type='text' />
+            </div>
+            <div className='form-group'>
+              <label>Date Visited:&nbsp;</label>
+              <input className='form-control' placeholder='Date' type="date" name="date" onChange={handleChange} value={place.date} />
+            </div>
+            <div className='form-group'>
+              <label>Your Name:&nbsp;</label>
+              <input className='form-control' placeholder='Your Name' type="text" name="name" onChange={handleChange} value={place.name} />
+            </div>
+            <div className='form-group'>
+              <label>Comments:&nbsp;</label>
+              <textarea className='form-control' placeholder='Comments' type="text" name="comments" onChange={handleChange} value={place.comments} />
+            </div>
             <Button variant="primary" type="submit">Submit</Button>
+            <Link to='/places'><Button variant="primary">Back</Button></Link>
           </form>
         </div>
       </Fragment>

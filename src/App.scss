@@ -16,7 +16,7 @@ body {
   background-repeat: repeat;
   height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .flash-success,
@@ -50,19 +50,69 @@ body {
   flex-direction: column;
   justify-content: center;
   margin: 0 auto 0;
-  max-width: 600px;
+  width: 700px;
   background-color: #fff;
-  padding: 100px;
+  padding: 50px 100px;
   border-radius: 10px;
   border-left: solid 10px #7AB7C7;
+  margin-top: 60px;
 
   h3,
   input {
     margin-bottom: 5%;
   }
 
-  button {
+  textarea {
+    margin-bottom: 38px;
+  }
+
+  Button {
     align-self: flex-end;
     max-width: 200px;
+    background-color: #263254;
+    border: #263254;
+    color: #fff;
+    margin: 0 3px;
+    float: right;
   }
+
+  Button:hover {
+    color: #fff;
+    background-color: #87B6C5;
+  }
+}
+
+.user-message {
+  padding: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+}
+
+.fade.alert.alert-success.alert-dismissible.show,
+.fade.alert.alert-danger.alert-dismissible.show {
+  width: 50%;
+  margin: 5px auto 0;
+  padding: .5rem 1.25rem;
+  text-align: center;
+}
+
+.alert-dismissible .close {
+  padding: .5rem 1.25rem;
+}
+
+.alert-heading.h4 {
+  font-size: 1em;
+}
+
+a {
+  color: #566A6E;
+}
+
+a:hover {
+  color: #87B6C5;
+}
+
+h2, h3 {
+  color: #87B6C5;
 }

@@ -65,7 +65,7 @@ export const editPlace = (place, user, id) => {
         city: place.city,
         country: place.country,
         comments: place.comments,
-        favorite: false
+        favorite: place.favorite
       }
     }
   })

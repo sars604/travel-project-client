@@ -41,10 +41,10 @@ class App extends Component {
           fade: true
         }))
       }))
-    }, 1000)
+    }, 3000)
     setTimeout(() => {
       this.setState(prevState => ({ alerts: prevState.alerts.slice(1) }))
-    }, 2000)
+    }, 4000)
   }
 
   render () {
@@ -53,13 +53,15 @@ class App extends Component {
     return (
       <React.Fragment>
         <Header user={user} />
-        {alerts.map((alert, index) => (
-          <Alert className={alert.fade ? 'fade-out' : ''} key={index} dismissible variant={alert.type}>
-            <Alert.Heading>
-              {alert.message}
-            </Alert.Heading>
-          </Alert>
-        ))}
+        <div className='user-message'>
+          {alerts.map((alert, index) => (
+            <Alert className={alert.fade ? 'fade-out' : ''} key={index} dismissible variant={alert.type}>
+              <Alert.Heading>
+                {alert.message}
+              </Alert.Heading>
+            </Alert>
+          ))}
+        </div>
         <main className="container">
           <div className='main-body'>
             <Route path='/sign-up' render={() => (

@@ -1,3 +1,36 @@
 .container {
   max-width: 100%;
 }
+
+.home-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto 0;
+  max-width: 800px;
+  background-color: #fff;
+  border-radius: 10px;
+  border-left: solid 10px #7AB7C7;
+  margin-top: 60px;
+}
+
+.home-box .airplane, .home-box .bus {
+  width: 50%;
+  float: left;
+}
+
+.home-box .images {
+  float: left;
+  padding-top: 20px;
+}
+
+.home-box h3 {
+  float: left;
+  padding: 40px;
+  color: #263254;
+}
+
+span.cite {
+  float: right;
+  font-size: 24px;
+}

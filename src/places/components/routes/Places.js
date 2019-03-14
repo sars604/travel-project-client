@@ -17,13 +17,22 @@ class Places extends Component {
     const { user } = this.props
 
     getPlaces(user)
+
       .then(response => this.setState({ places: response.data.places }))
       .catch(console.error)
   }
 
   render () {
     if (!this.state.places) {
-      return <p>loading...</p>
+      return <div className='places-box'>
+        <p>Loading...</p>
+      </div>
+    }
+
+    if (this.state.places.length < 1) {
+      return <div className='places-box'>
+        <p>No places logged, add one now!</p>
+      </div>
     }
 
     return (
@@ -33,7 +42,7 @@ class Places extends Component {
           {this.state.places.map(place => (
             <Link key={place.id} to={`/places/${place.id}`}>
               <div className='place' >
-                <h5>{place.city}, {place.country} {place.favorite ? '❤️' : ''} </h5>
+                <h5>{place.city}, {place.country} {place.favorite ? '💛' : ''} </h5>
               </div>
             </Link>
           ))}

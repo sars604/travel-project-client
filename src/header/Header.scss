@@ -40,6 +40,10 @@ img {
   opacity: 0;
 }
 
+.main-header a, .main-header span {
+  font-size: 1em;
+}
+
 @media (max-width: 600px) {
   .main-header {
     flex-direction: column;

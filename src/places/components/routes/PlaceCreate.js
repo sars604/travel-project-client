@@ -58,18 +58,28 @@ class PlaceCreate extends Component {
           { message && <Alert dismissible variant="success">{message}</Alert> }
           <h3 className="create-quote">Log a Place</h3>
           <form onSubmit={onCreatePlace}>
-            <label>City:&nbsp;</label>
-            <input placeholder='City' name="city" onChange={handleChange} value={place.city} type='text' /><br />
-            <label>Country:&nbsp;</label>
-            <input placeholder='Country' name="country" onChange={handleChange} value={place.country} type='text' /><br />
-            <label>Date Visited:&nbsp;</label>
-            <input placeholder='Date' type="date" name="date" onChange={handleChange} value={place.date} /><br />
-            <label>Your Name:&nbsp;</label>
-            <input placeholder='Your Name' type="text" name="name" onChange={handleChange} value={place.name} /><br />
-            <label>Comments:&nbsp;</label>
-            <input placeholder='Comments' type="text" name="comments" onChange={handleChange} value={place.comments} /><br />
-            <Link to='/places'><Button variant="primary">Back</Button></Link>
+            <div className='form-group'>
+              <label>City:&nbsp;</label>
+              <input className='form-control' placeholder='London' name="city" onChange={handleChange} value={place.city} type='text' />
+            </div>
+            <div className='form-group'>
+              <label>Country:&nbsp;</label>
+              <input className='form-control' placeholder='England' name="country" onChange={handleChange} value={place.country} type='text' />
+            </div>
+            <div className='form-group'>
+              <label>Date Visited:&nbsp;</label>
+              <input className='form-control' placeholder='Date' type="date" name="date" onChange={handleChange} value={place.date} />
+            </div>
+            <div className='form-group'>
+              <label>Your Name:&nbsp;</label>
+              <input className='form-control' placeholder='Sarah' type="text" name="name" onChange={handleChange} value={place.name} />
+            </div>
+            <div className='form-group'>
+              <label>Comments:&nbsp;</label>
+              <textarea className='form-control' placeholder='Big Ben is big!' type="text" name="comments" onChange={handleChange} value={place.comments} />
+            </div>
             <Button variant="primary" type="submit">Submit</Button>
+            <Link to='/places'><Button variant="primary">Back</Button></Link>
           </form>
         </div>
       </Fragment>

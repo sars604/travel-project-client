@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
+import Button from 'react-bootstrap/Button'
 
 import { changePassword } from '../api'
 import messages from '../messages'
@@ -58,7 +59,7 @@ class ChangePassword extends Component {
           placeholder="New Password"
           onChange={this.handleChange}
         />
-        <button type="submit">Change Password</button>
+        <Button type="submit">Change Password</Button>
       </form>
     )
   }
