@@ -4,6 +4,7 @@ import { Link, withRouter } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 import { getPlace, deletePlace, favoritePlace } from '../../api'
 import messages from '../../messages'
+import moment from 'moment'
 
 class Place extends Component {
   constructor () {
@@ -69,7 +70,7 @@ class Place extends Component {
       <Fragment>
         <div className='single-place'>
           <h3>{city}, {country} {flag(country)} {favorite ? '💛' : ''}</h3>
-          <h5>{date}</h5>
+          <h5>{moment(date).format('LL')}</h5>
           <p>{comments}</p>
           <div className='buttons'><Button onClick={this.onDeletePlace}>Delete</Button>
             <Link to={`/places/${this.props.match.params.id}/edit`}><Button>Edit</Button></Link>
