@@ -32,7 +32,7 @@ class Places extends Component {
 
     if (this.state.places.length < 1) {
       return <div className='places-box'>
-        <p>No places logged, add one now!</p>
+        <h3>No places logged, <Link to='/place-create'>add one now!</Link></h3>
       </div>
     }
 
