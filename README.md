@@ -46,5 +46,5 @@ The main unsolved issue of my application is the integration with Google Maps. I
 2.  Create a new branch, `development`, for your work.
 3.  Checkout to the `development` branch.
 4.  Install dependencies with `npm install`.
-5.  Run `npm start` to run application on local server.
+5.  Run `npm run start` to run application on local server.
 6. Have fun making it your own!
